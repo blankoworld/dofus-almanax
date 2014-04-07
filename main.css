@@ -1,0 +1,73 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: #eee;
+  color: black;
+  font-size: 11pt;
+  background: #040e10 url('http://staticns.ankama.com/ankama/cms/images/217/2013/12/17/413571.jpg') center top no-repeat !important;
+/*  background: #0e0604  url(http://staticns.ankama.com/ankama/cms/images/217/2014/03/28/417653.jpg)  center top no-repeat !important;*/
+}
+
+h1 {
+  display: none;
+}
+
+h3 {
+  font-size: 12pt;
+}
+
+p {
+  width: 98%;
+  padding: 0 1%;
+  margin: 0;
+}
+
+div#almanax, div#liens {
+  position: absolute;
+  top: 5%;
+  width: 40%;
+  margin: 0 5%;
+  background-color: #fff;
+  color: #000;
+}
+
+div#almanax h3, div#liens h3 {
+  background-color: #999;
+  color: #eee;
+  margin: 0;
+  padding-left: 10px;
+  padding-right: -10px;
+}
+
+ul#almanax {
+  list-style-type: none;
+  margin-left: -20px;
+}
+
+ul li {
+  color: black;
+}
+
+ul li time.jour {
+  color: darkblue;
+}
+
+li.ingredient {
+  color: #ff0000;
+}
+
+li.bonus {
+}
+
+div#liens {
+  position: absolute;
+  right: 0;
+  top: 5%;
+}
+
+ul#astuces {
+  list-style-type: none;
+  margin-left: -20px;
+}
