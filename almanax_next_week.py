@@ -118,7 +118,7 @@ def main():
                 # Create file
                 f = open(directory + '/' + filename, 'w')
                 # Write result of given url in the file
-                new_date_url = "%s/%s" % (base_url, today_string)
+                new_date_url = "%s/%s" % (base_url, newdate_string)
                 f.write(download(new_date_url))
                 f.close()
             except Exception as e:
@@ -133,7 +133,6 @@ def main():
     result += footercontent
     # Display result
     print result
-    print realpath(__file__)
 
 #####
 ## MAIN / BEGIN / END
