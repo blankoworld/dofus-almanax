@@ -30,6 +30,10 @@ This will build an index.html file with the 7 next days of almanax.
 
 You can use a CRON job on GNU/Linux to often build the page.
 
+Example that launch the script every day at midnight:
+
+    30  0  *   *   *     /usr/bin/python /srv/web/almanax/almanax_next_week.py > /srv/web/almanax/www/index.html
+
 # Almanax Dofus des 7 prochains jours
 
 Ce script renvoie un code HTML qui affiche les 7 prochains jours de l'almanax Dofus.
@@ -59,3 +63,8 @@ Cela va construire une page index.html avec les 7 prochains jours de l'almanax.
 ## Astuce
 
 Vous pouvez utiliser une tâche CRON sur GNU/Linux pour construire la page régulièrement.
+
+Exemple qui lance le script tout les jours à minuit:
+
+    30  0  *   *   *     /usr/bin/python /srv/web/almanax/almanax_next_week.py > /srv/web/almanax/www/index.html
+
