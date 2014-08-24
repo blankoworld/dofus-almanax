@@ -41,9 +41,13 @@ div#almanax h3, div#liens h3 {
   padding-right: -10px;
 }
 
-ul#almanax {
-  list-style-type: none;
+ul#alma {
+  list-style-type: circle;
   margin-left: -20px;
+}
+
+ul#alma li li {
+  list-style-type: square;
 }
 
 ul li {

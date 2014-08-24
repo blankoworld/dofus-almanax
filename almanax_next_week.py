@@ -88,6 +88,8 @@ def fetch_infos_from(filename):
             text2 = text2.split('.')[0]
             bonus += text2
     filestream.close()
+    # Delete all "&#13;"
+    bonus = bonus.replace('&#13;', '')
     return result, bonus
 
 def main():
@@ -106,10 +108,10 @@ def main():
     footerfile.close()
     # Create page's header
     result = headercontent
-    result += '<ul>'
     # Browse next 6 days (including today)
     for i in xrange(0, 7):
         new_date = today + timedelta(i)
+        formated_new_date = datetime.strftime(new_date, '%Y-%m-%d')
         newdate_string = new_date.strftime(date_format)
         filename = "%s%s" % (newdate_string, temporary_file_extension)
         # Fetch remote file if not exist locally
@@ -124,11 +126,9 @@ def main():
             except Exception as e:
               return e
         # Read local file
-        result += '<li><time class="jour" datetime="%s">%s</time> : <ul><li class="ingredient">' % (new_date, newdate_string)
+        result += '<li><time class="jour" datetime="%s">%s</time> : \n\t<ul>\n\t\t<li class="ingredient">' % (formated_new_date, newdate_string)
         offrande, bonus = fetch_infos_from(directory + '/' + filename)
-        result += '%s</li><li class="bonnus">%s</li></ul></li>\n' % (offrande, bonus)
-    # Close UL tag
-    result += '</ul>'
+        result += '%s</li>\n\t\t<li class="bonus">%s</div></li>\n\t</ul>\n</li>\n' % (offrande, bonus)
     # Close page
     result += footercontent
     # Display result
