@@ -1,0 +1,2 @@
+## Tout les robots
+User-Agent: *
