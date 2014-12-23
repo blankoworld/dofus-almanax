@@ -44,6 +44,8 @@ div#almanax h3, div#liens h3 {
 ul#alma {
   list-style-type: circle;
   margin-left: -20px;
+  max-height: 600px;
+  overflow: auto;
 }
 
 ul#alma li li {
