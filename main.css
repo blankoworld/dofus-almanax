@@ -6,8 +6,9 @@ html, body {
   background: #eee;
   color: black;
   font-size: 11pt;
-  background: #040e10 url('http://staticns.ankama.com/ankama/cms/images/217/2013/12/17/413571.jpg') center top no-repeat !important;
-/*  background: #0e0604  url(http://staticns.ankama.com/ankama/cms/images/217/2014/03/28/417653.jpg)  center top no-repeat !important;*/
+  background: #040e10 url('http://staticns.ankama.com/ankama/cms/images/293/2015/06/22/436385.jpg');
+/*  background: #040e10 url('http://staticns.ankama.com/ankama/cms/images/217/2013/12/17/413571.jpg') center top no-repeat !important;
+  background: #0e0604  url(http://staticns.ankama.com/ankama/cms/images/217/2014/03/28/417653.jpg)  center top no-repeat !important;*/
 }
 
 h1 {
@@ -76,4 +77,8 @@ div#liens {
 ul#astuces {
   list-style-type: none;
   margin-left: -20px;
+}
+
+p.signature {
+  text-align: right;
 }
