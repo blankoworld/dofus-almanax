@@ -35,6 +35,7 @@ temporary_file_extension = '.html'
 directory = dirname(realpath(__file__))
 header = directory + '/header.tmpl'
 footer = directory + '/footer.tmpl'
+day_duration = 30
 
 #####
 ## FUNCTIONS
@@ -109,7 +110,7 @@ def main():
     # Create page's header
     result = headercontent
     # Browse next 6 days (including today)
-    for i in xrange(0, 7):
+    for i in xrange(0, day_duration):
         new_date = today + timedelta(i)
         formated_new_date = datetime.strftime(new_date, '%Y-%m-%d')
         newdate_string = new_date.strftime(date_format)
