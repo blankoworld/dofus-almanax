@@ -78,3 +78,7 @@ ul#astuces {
   list-style-type: none;
   margin-left: -20px;
 }
+
+p.signature {
+  text-align: right;
+}
