@@ -6,6 +6,8 @@ This script give a HTML code that display the 30 next days of Dofus almanax.
 
 You can see result here: [Almanax](http://almanax.depotoi.re "Have a look to the result").
 
+**LICENSE**: This program is under WTFPL conditions (Cf. https://en.wikipedia.org/wiki/WTFPL).
+
 ## Dependancies
 
 You need:
@@ -39,6 +41,9 @@ Example that launch the script every day at midnight:
 Ce script renvoie un code HTML qui affiche les 30 prochains jours de l'almanax Dofus.
 
 Vous pouvez voir le résultat ici : [Almanax](http://almanax.depotoi.re "Apercevoir le résultat")
+
+**LICENCE** : Cette application est délivrée sous les conditions de LPRAB (Cf. https://fr.wikipedia.org/wiki/WTFPL)
+
 
 ## Dépendances
 
