@@ -71,8 +71,8 @@ li.bonus {
 
 div#liens {
   position: absolute;
-  right: 0;
-  top: 5%;
+  left: 710px;
+  top: 550px;
 }
 
 ul#astuces {
