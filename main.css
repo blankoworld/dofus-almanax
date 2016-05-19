@@ -1,5 +1,6 @@
 html, body {
   height: 100%;
+  min-height: 1200px;
   width: 100%;
   margin: 0;
   padding: 0;
@@ -46,7 +47,7 @@ div#almanax h3, div#liens h3 {
 ul#alma {
   list-style-type: circle;
   margin-left: -20px;
-  max-height: 600px;
+  max-height: 1100px;
   overflow: auto;
 }
 
@@ -69,10 +70,17 @@ li.ingredient {
 li.bonus {
 }
 
+div#almanax {
+  filter:alpha(opacity=80);
+  -moz-opacity:0.8;
+  -khtml-opacity: 0.8;
+  opacity: 0.8;
+}
+
 div#liens {
   position: absolute;
-  right: 0;
-  top: 5%;
+  left: 750px;
+  top: 600px;
 }
 
 ul#astuces {
