@@ -27,6 +27,7 @@ from os.path import realpath
 from os.path import dirname
 import mechanize
 from lxml import etree
+from string import Template
 
 # Local variables
 base_url = "http://www.krosmoz.com/fr/almanax"
@@ -35,7 +36,7 @@ temporary_file_extension = '.html'
 directory = dirname(realpath(__file__))
 header = directory + '/header.tmpl'
 footer = directory + '/footer.tmpl'
-day_duration = 356
+day_duration = 365
 
 #####
 ## FUNCTIONS
@@ -102,14 +103,17 @@ def main():
     # Prepare some values
     today = datetime.today()
     headerfile = open(header, 'r')
-    headercontent = headerfile.read()
+    headercontent = Template(headerfile.read())
     headerfile.close()
+    header_replace_content = headercontent.safe_substitute({
+        'number': day_duration - 1,
+    })
     footerfile = open(footer, 'r')
     footercontent = footerfile.read()
     footerfile.close()
     # Create page's header
-    result = headercontent
-    # Browse next 6 days (including today)
+    result = header_replace_content
+    # Browse next xx days (including today)
     for i in xrange(0, day_duration):
         new_date = today + timedelta(i)
         formated_new_date = datetime.strftime(new_date, '%Y-%m-%d')
