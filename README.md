@@ -1,8 +1,8 @@
 Version française un peu plus bas.
 
-# Dofus almanax for the 30 next days
+# Dofus almanax for the 15 next days
 
-This script give a HTML code that display the 30 next days of Dofus almanax.
+This script give a HTML code that display the 15 next days of Dofus almanax.
 
 You can see result here: [Almanax](http://almanax.depotoi.re "Have a look to the result").
 
@@ -26,7 +26,7 @@ In a shell, just do this:
 
     python almanax_next_week.py > index.html
 
-This will build an index.html file with the 30 next days of almanax.
+This will build an index.html file with the 15 next days of almanax.
 
 ## Tip
 
@@ -36,9 +36,9 @@ Example that launch the script every day at midnight:
 
     30  0  *   *   *     /usr/bin/python /srv/web/almanax/almanax_next_week.py > /srv/web/almanax/www/index.html
 
-# Almanax Dofus des 30 prochains jours
+# Almanax Dofus des 15 prochains jours
 
-Ce script renvoie un code HTML qui affiche les 30 prochains jours de l'almanax Dofus.
+Ce script renvoie un code HTML qui affiche les 15 prochains jours de l'almanax Dofus.
 
 Vous pouvez voir le résultat ici : [Almanax](http://almanax.depotoi.re "Apercevoir le résultat")
 
@@ -63,7 +63,7 @@ Dans une console, faites simplement ceci :
 
     python almanax_next_week.py > index.html
 
-Cela va construire une page index.html avec les 30 prochains jours de l'almanax.
+Cela va construire une page index.html avec les 15 prochains jours de l'almanax.
 
 ## Astuce
 

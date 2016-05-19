@@ -36,7 +36,7 @@ temporary_file_extension = '.html'
 directory = dirname(realpath(__file__))
 header = directory + '/header.tmpl'
 footer = directory + '/footer.tmpl'
-day_duration = 365
+day_duration = 15
 
 #####
 ## FUNCTIONS
