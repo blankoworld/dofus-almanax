@@ -74,7 +74,9 @@ def fetch_infos_from(filename):
             return result, bonus
         tree = etree.HTML(content)
         # Offrande
-        for div in tree.xpath("//div[@id='almanax_meryde_effect']//div[@class='more-infos-content']//p[@class='fleft']"):
+        offer_html = tree.xpath("//div[@id='almanax_meryde_effect']//div[@class='more-infos-content']//p[@class='fleft']")
+        if offer_html and len(offer_html) > 0:
+            div = offer_html[0]
             text = div.text
             if isinstance(text, unicode):
                 text = text.encode('utf-8')
@@ -82,7 +84,9 @@ def fetch_infos_from(filename):
             text = text.split('et rapporter')[0]
             result += text #etree.tostring(div)
         # Bonus
-        for div2 in tree.xpath("//div[@id='almanax_meryde_effect']//div[@id='achievement_dofus']//div[@class='more']"):
+        bonus_html =  tree.xpath("//div[@id='almanax_meryde_effect']//div[@id='achievement_dofus']//div[@class='more']")
+        if bonus_html and len(bonus_html) > 0:
+            div2 = bonus_html[0]
             text2 = etree.tostring(div2)
             if isinstance(text2, unicode):
                 text2 = text2.encode('utf-8')
