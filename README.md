@@ -12,7 +12,7 @@ You can see result here: [Almanax](https://almanax.o9.re "Have a look to the res
 
 You need:
 
-  * python
+  * python3
   * python-lxml
   * python-mechanize
 
@@ -49,7 +49,7 @@ Vous pouvez voir le résultat ici : [Almanax](https://almanax.o9.re "Apercevoir 
 
 Vous avez besoin de : 
 
-  * python
+  * python3
   * python-lxml
   * python-mechanize
 
