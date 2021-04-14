@@ -24,6 +24,7 @@ No installation needed
 
 In a shell, just do this:
 
+    cd src
     python almanax_next_week.py > index.html
 
 This will build an index.html file with the 15 next days of almanax.
@@ -61,6 +62,7 @@ Aucune installation nécessaire
 
 Dans une console, faites simplement ceci : 
 
+    cd src
     python almanax_next_week.py > index.html
 
 Cela va construire une page index.html avec les 15 prochains jours de l'almanax.
@@ -71,5 +73,5 @@ Vous pouvez utiliser une tâche CRON sur GNU/Linux pour construire la page régu
 
 Exemple qui lance le script tout les jours à minuit:
 
-    30  0  *   *   *     /usr/bin/python /srv/web/almanax/almanax_next_week.py > /srv/web/almanax/www/index.html
+    30  0  *   *   *     /usr/bin/python /srv/web/almanax/src/almanax_next_week.py > /srv/web/almanax/src/index.html
 
