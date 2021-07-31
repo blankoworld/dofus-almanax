@@ -37,6 +37,8 @@ directory = dirname(realpath(__file__))
 header = directory + "/header.tmpl"
 footer = directory + "/footer.tmpl"
 day_duration = 15
+# Directory name in which downloaded page will go
+dl_directory = "dl"
 
 #####
 ## FUNCTIONS
@@ -112,10 +114,11 @@ def main():
         newdate_string = new_date.strftime(date_format)
         filename = "%s%s" % (newdate_string, temporary_file_extension)
         # Fetch remote file if not exist locally
-        if not exists(directory + '/' + filename):
+        calendar_file = directory + '/' + dl_directory + '/' + filename
+        if not exists(calendar_file):
             try:
                 # Create file
-                with open(directory + '/' + filename, 'w') as f:
+                with open(calendar_file, 'w') as f:
                     # Write result of given url in the file
                     new_date_url = "%s/%s" % (base_url, newdate_string)
                     content = download(new_date_url)
@@ -125,7 +128,7 @@ def main():
               return e
         # Read local file
         result += u'<li><time class="jour" datetime="%s">%s</time> : \n\t<ul>\n\t\t<li class="ingredient">' % (formated_new_date, newdate_string)
-        offrande, bonus = fetch_infos_from(directory + '/' + filename)
+        offrande, bonus = fetch_infos_from(calendar_file)
         result += u'%s</li>\n\t\t<li class="bonus">%s</div></li>\n\t</ul>\n</li>\n' % (offrande, bonus)
     # Close page
     result += footercontent
