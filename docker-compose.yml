@@ -1,7 +1,15 @@
 version: '3'
 services:
-  web:
+  generator:
     build: .
     image: dofus-almanax
+    volumes:
+      - ${VOLUME_ROOT}/public:/opt/almanax/public:rw
+  web:
+    image: nginx:1.21-alpine
+    depends_on:
+      - generator
+    volumes:
+      - ${VOLUME_ROOT}/public:/usr/share/nginx/html:ro
     ports:
-            - "80"
+      - 8888:80

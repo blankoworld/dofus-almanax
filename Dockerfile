@@ -1,10 +1,17 @@
-FROM nginx:1.21-alpine
+FROM alpine:3.14
 
-RUN curl -sSL "https://github.com/h5bp/server-configs-nginx/archive/3.3.0.tar.gz" | tar -xzf - --strip-components=1 -C /etc/nginx && \
-    sed -i -r 's/user www-data/user nginx/' /etc/nginx/nginx.conf && \
-    rm -rf /etc/nginx/conf.d/*
+RUN apk update && \
+    apk add --no-cache \
+        py3-lxml \
+	py3-mechanize && \
+    rm -rf /var/cache/apk/*
 
-COPY /container_root /
-COPY /src /var/www/html
+WORKDIR /opt/almanax
 
-EXPOSE 5000
+VOLUME /opt/almanax/public
+VOLUME /opt/almanax/dl
+
+ENTRYPOINT ["python3", "almanax_next_week.py"]
+CMD ["/opt/almanax/public/index.html"]
+
+COPY ./src /opt/almanax
