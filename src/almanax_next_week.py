@@ -28,6 +28,8 @@ from os.path import dirname
 import mechanize
 from lxml import etree
 from string import Template
+from distutils.dir_util import copy_tree
+import sys
 
 # Local variables
 base_url = u"http://www.krosmoz.com/fr/almanax"
@@ -38,7 +40,11 @@ header = directory + "/header.tmpl"
 footer = directory + "/footer.tmpl"
 day_duration = 15
 # Directory name in which downloaded page will go
-dl_directory = "dl"
+dl_directory = directory + "/dl"
+# Static directory which contains CSS, pictures, etc.
+static_directory = directory + "/static"
+# Public directory in which result will go
+public_directory = directory + "/public"
 
 #####
 ## FUNCTIONS
@@ -88,7 +94,13 @@ def fetch_infos_from(filename):
     bonus = bonus.replace('&#13;', '')
     return result, bonus
 
-def main():
+def generate_public_directory():
+    """
+    Copy static directory to public one
+    """
+    copy_tree(static_directory, public_directory)
+
+def main(resultfile=None):
     """
     Get today's date.
     Fetch 7 HTML pages from next week from 'base_url' variable.
@@ -114,7 +126,7 @@ def main():
         newdate_string = new_date.strftime(date_format)
         filename = "%s%s" % (newdate_string, temporary_file_extension)
         # Fetch remote file if not exist locally
-        calendar_file = directory + '/' + dl_directory + '/' + filename
+        calendar_file = dl_directory + '/' + filename
         if not exists(calendar_file):
             try:
                 # Create file
@@ -132,12 +144,24 @@ def main():
         result += u'%s</li>\n\t\t<li class="bonus">%s</div></li>\n\t</ul>\n</li>\n' % (offrande, bonus)
     # Close page
     result += footercontent
+    # Generate public directory content
+    generate_public_directory()
     # Display result
-    print(result)
+    if resultfile:
+        with open(resultfile, 'w') as f:
+            f.write(result)
+            f.close()
+    else:
+        print(result)
 
 #####
 ## MAIN / BEGIN / END
 ###
 
 if __name__ == '__main__':
-    main()
+    # Use first command line parameter as argument to main()
+    args = sys.argv[1:]
+    resultfile = None
+    if len(args) > 0:
+        resultfile = args[0]
+    main(resultfile)
