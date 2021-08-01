@@ -8,7 +8,7 @@ You can see result here: [Almanax](https://almanax.o9.re "Have a look to the res
 
 **LICENSE**: This program is under WTFPL conditions (Cf. https://en.wikipedia.org/wiki/WTFPL).
 
-## Dependancies
+## Dependencies
 
 You need:
 
@@ -22,12 +22,24 @@ No installation needed
 
 ## How to use it?
 
+### On command line
+
 In a shell, just do this:
 
     cd src
     python almanax_next_week.py > index.html
 
 This will build an index.html file with the 15 next days of almanax.
+
+### With docker-compose
+
+If you install [Docker Compose](https://docs.docker.com/compose/) on your computer, just do: 
+
+```
+docker-compose up
+```
+
+The website would be accessible on: http://localhost:8888/.
 
 ## Tip
 
@@ -60,12 +72,24 @@ Aucune installation nécessaire
 
 ## Comment l'utiliser ?
 
+### En ligne de commande
+
 Dans une console, faites simplement ceci : 
 
     cd src
     python almanax_next_week.py > index.html
 
 Cela va construire une page index.html avec les 15 prochains jours de l'almanax.
+
+### En utilisant des conteneurs Docker
+
+Si vous avez installé [Docker Compose](https://docs.docker.com/compose/) sur votre machine, il suffit de faire : 
+
+```
+docker-compose up
+```
+
+Le site est accessible à l'adresse suivante : http://localhost:8888/.
 
 ## Astuce
 

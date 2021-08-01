@@ -1,5 +1,1 @@
-src/*.html
-src/*.py
-src/*.tmpl
-
-!src/index.html
+src/dl/*

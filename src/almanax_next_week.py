@@ -148,6 +148,7 @@ def main(resultfile=None):
     generate_public_directory()
     # Display result
     if resultfile:
+        print("Génération dans '%s'" % resultfile)
         with open(resultfile, 'w') as f:
             f.write(result)
             f.close()
@@ -160,8 +161,7 @@ def main(resultfile=None):
 
 if __name__ == '__main__':
     # Use first command line parameter as argument to main()
-    args = sys.argv[1:]
     resultfile = None
-    if len(args) > 0:
-        resultfile = args[0]
+    if len(sys.argv) > 1:
+        resultfile = sys.argv[1]
     main(resultfile)
