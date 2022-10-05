@@ -2,7 +2,7 @@ version: '3'
 services:
   generator:
     build: .
-    image: dofus-almanax:0.1
+    image: dofus-almanax:0.2
     volumes:
       - almanax_public:/opt/almanax/public:rw
       - almanax_data:/opt/almanax/dl:rw
@@ -17,7 +17,7 @@ services:
     ports:
       - 8888:80
   cron:
-    image: dofus-almanax:0.1
+    image: dofus-almanax:0.2
     restart: always
     entrypoint: /usr/sbin/crond
     command: ["-f", "-l", "8"]
