@@ -2,14 +2,30 @@ version: '3'
 services:
   generator:
     build: .
-    image: dofus-almanax
+    image: dofus-almanax:0.1
     volumes:
-      - ${VOLUME_ROOT}/public:/opt/almanax/public:rw
+      - almanax_public:/opt/almanax/public:rw
+      - almanax_data:/opt/almanax/dl:rw
   web:
-    image: nginx:1.21-alpine
+    image: caddy:2-alpine
+    restart: always
     depends_on:
       - generator
     volumes:
-      - ${VOLUME_ROOT}/public:/usr/share/nginx/html:ro
+      - almanax_public:/usr/share/caddy:ro
+      - ${PWD}/Caddyfile:/etc/caddy/Caddyfile
     ports:
       - 8888:80
+  cron:
+    image: dofus-almanax:0.1
+    restart: always
+    entrypoint: /usr/sbin/crond
+    command: ["-f", "-l", "8"]
+    volumes:
+      - almanax_public:/opt/almanax/public:rw
+      - almanax_data:/opt/almanax/dl:rw
+      - ./cron_scripts:/etc/periodic/daily:ro
+
+volumes:
+  almanax_public:
+  almanax_data:
