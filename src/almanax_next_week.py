@@ -28,7 +28,7 @@ from os.path import dirname
 import mechanize
 from lxml import etree
 from string import Template
-from distutils.dir_util import copy_tree
+from shutil import copytree
 import sys
 
 # Local variables
@@ -98,7 +98,7 @@ def generate_public_directory():
     """
     Copy static directory to public one
     """
-    copy_tree(static_directory, public_directory)
+    copytree(static_directory, public_directory, dirs_exist_ok=True)
 
 def main(resultfile=None):
     """
