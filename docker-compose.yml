@@ -20,7 +20,7 @@ services:
     image: dofus-almanax:0.2
     restart: always
     entrypoint: /usr/sbin/crond
-    command: ["-f", "-l", "8"]
+    command: ["-f", "-l", "2"]
     volumes:
       - almanax_public:/opt/almanax/public:rw
       - almanax_data:/opt/almanax/dl:rw
