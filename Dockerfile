@@ -3,8 +3,11 @@ FROM alpine:3.16
 RUN apk update && \
     apk add --no-cache \
         py3-lxml \
-	py3-mechanize && \
+	py3-mechanize \
+	tzdata && \
     rm -rf /var/cache/apk/*
+
+ENV TZ=Europe/Paris
 
 WORKDIR /opt/almanax
 
