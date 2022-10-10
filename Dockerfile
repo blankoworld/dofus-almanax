@@ -18,4 +18,4 @@ ENTRYPOINT ["python3", "almanax_next_week.py"]
 CMD ["/opt/almanax/public/index.html"]
 
 COPY ./src /opt/almanax
-COPY ./cron_scripts/generate.sh /opt/generate.sh
+COPY ./cron_scripts/generate.sh /opt/generate
