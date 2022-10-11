@@ -18,4 +18,9 @@ ENTRYPOINT ["python3", "almanax_next_week.py"]
 CMD ["/opt/almanax/public/index.html"]
 
 COPY ./src /opt/almanax
+COPY ./crontabs /etc/crontabs/root
+
+RUN chown root:root /etc/crontabs/root && \
+    chmod 600 /etc/crontabs/root
+
 COPY ./cron_scripts/generate.sh /opt/generate

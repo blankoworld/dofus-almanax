@@ -24,7 +24,6 @@ services:
     volumes:
       - almanax_public:/opt/almanax/public:rw
       - almanax_data:/opt/almanax/dl:rw
-      - ./crontabs:/etc/crontabs/root:ro
 
 volumes:
   almanax_public:
